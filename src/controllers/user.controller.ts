@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import prisma from "../src/prisma";
+import prisma from "../prisma";
 
 class UserController {
   static async deleteUser(req: Request, res: Response) {
