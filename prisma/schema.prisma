@@ -38,3 +38,36 @@ model Student{
   userId Int?
   
 }
+
+model Quiz {
+  id Int @id @default(autoincrement())
+  title String @db.VarChar(200)
+  description String @db.VarChar(200)
+  questions Question[]
+  category Category[]
+  // category Category @relation(fields: [category_id], references: [id])
+  // category_id Int
+
+}
+
+model Question{
+  id Int @id @default(autoincrement())
+  question String @db.VarChar(200)
+  option1 String @db.VarChar(200)
+  option2 String @db.VarChar(200)
+  option3 String @db.VarChar(200)
+  option4 String @db.VarChar(200)
+  answer String @db.VarChar(200)
+  quiz Quiz @relation(fields: [quiz_id], references: [id])
+  quiz_id Int 
+  category Category @relation(fields: [category_id], references: [id])
+  category_id Int
+}
+
+model Category{
+  id Int @id @default(autoincrement())
+  title String @db.VarChar(200)
+  questions Question[]
+  quiz Quiz @relation(fields: [quiz_id], references: [id])
+  quiz_id Int 
+}

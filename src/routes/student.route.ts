@@ -1,5 +1,5 @@
 import { Router } from "express";
-import StudentController from "../student.controller";
+import StudentController from "../controllers/student.controller";
 
 const studentRouter = Router();
 
@@ -9,4 +9,4 @@ studentRouter.post("/", StudentController.createStudent);
 studentRouter.patch("/:id", StudentController.updateStudent);
 studentRouter.delete("/:id", StudentController.deleteStudent);
 
-module.exports = studentRouter;
+export default studentRouter;
