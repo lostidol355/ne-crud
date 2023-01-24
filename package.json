@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "ts-node prisma/seed.ts",
-   
-    "start": "ts-node ./src/app.ts",
+    "start": "nodemon --exec npx ts-node ./src/app.ts",
+    "start:production": "node dist/index.js",
+    "postinstall": "tsc",
     "start:prod": "ts-node ./src/app.ts",
     "start-gendoc": "ts-node swagger.ts"
   },
